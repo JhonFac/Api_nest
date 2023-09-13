@@ -9,19 +9,16 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Company {
-    @PrimaryGeneratedColumn('increment')
+export class CreateCompanyDto {
+    @PrimaryGeneratedColumn()
     id: number;
 
-    @ApiProperty({ description: `Email` })
-    @Column()
+    @ApiProperty()
     email: string;
 
-    @ApiProperty({ description: `Company`, nullable: true })
-    @Column()
+    @ApiProperty()
     company: string;
 
-    @ApiProperty({ description: `nit` })
-    @Column()
+    @ApiProperty()
     nit: string;
 }

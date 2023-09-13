@@ -1,9 +1,9 @@
-import { Company, UpdateCompanyDto, CreateCompanyDto } from './entities/company.entity';
+import { Company } from './entities/company.entity';
+import { CreateCompanyDto } from './entities/createCompany.entity';
 import {
     Controller,
     Get,
     Post,
-    Put,
     Body,
     Patch,
     Param,
@@ -34,17 +34,9 @@ export class CompanyController {
     }
 
     @Post()
+    @ApiOperation({ summary: `Create company` })
     create(@Body() createCompanyDto: CreateCompanyDto) {
+        console.log(createCompanyDto)
         return this.companyService.create(createCompanyDto);
-    }
-
-    @Put(':id')
-    update(@Param('id') id: number, @Body() updateCompanyDto: UpdateCompanyDto) {
-        return this.companyService.update(id, updateCompanyDto);
-    }
-
-    @Delete(':id')
-    remove(@Param('id') id: number) {
-        return this.companyService.remove(id);
     }
 }
