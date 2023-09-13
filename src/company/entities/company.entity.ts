@@ -8,9 +8,7 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     Column,
-    OneToMany,
 } from 'typeorm';
-import { Person } from './person.entity';
 
 @Entity()
 export class Company {
@@ -29,9 +27,6 @@ export class Company {
     @ApiProperty({ description: `nit` })
     @Column()
     nit: string;
-
-    @OneToMany(() => Person, (person) => person.company)
-    people: Person[];
 }
 
 
